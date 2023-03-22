@@ -1,8 +1,8 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Classes;
+namespace SpecialYellow\ShortURL\Classes;
 
-use AshAllenDesign\ShortURL\Exceptions\ValidationException;
+use SpecialYellow\ShortURL\Exceptions\ValidationException;
 
 class Validation
 {

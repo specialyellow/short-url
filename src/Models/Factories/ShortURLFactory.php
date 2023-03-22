@@ -1,9 +1,9 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Models\Factories;
+namespace SpecialYellow\ShortURL\Models\Factories;
 
-use AshAllenDesign\ShortURL\Classes\KeyGenerator;
-use AshAllenDesign\ShortURL\Models\ShortURL;
+use SpecialYellow\ShortURL\Classes\KeyGenerator;
+use SpecialYellow\ShortURL\Models\ShortURL;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Models\Factories;
+namespace SpecialYellow\ShortURL\Models\Factories;
 
-use AshAllenDesign\ShortURL\Models\ShortURLVisit;
+use SpecialYellow\ShortURL\Models\ShortURLVisit;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 use Jenssegers\Agent\Agent;

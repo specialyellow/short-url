@@ -1,8 +1,8 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Classes;
+namespace SpecialYellow\ShortURL\Classes;
 
-use AshAllenDesign\ShortURL\Models\ShortURL;
+use SpecialYellow\ShortURL\Models\ShortURL;
 use Hashids\Hashids;
 
 class KeyGenerator

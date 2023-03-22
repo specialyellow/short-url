@@ -1,11 +1,13 @@
 <p align="center">
-<img src="https://ashallendesign.co.uk/images/custom/short-url-logo.png" width="400">
+<img src="https://SpecialYellow.co.uk/images/custom/short-url-logo.png" width="400">
 </p>
 
 <p align="center">
-<a href="https://packagist.org/packages/ashallendesign/short-url"><img src="https://img.shields.io/packagist/v/ashallendesign/short-url.svg?style=flat-square" alt="Latest Version on Packagist"></a>
-<a href="https://packagist.org/packages/ashallendesign/short-url"><img src="https://img.shields.io/packagist/dt/ashallendesign/short-url.svg?style=flat-square" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/ashallendesign/short-url"><img src="https://img.shields.io/packagist/php-v/ashallendesign/short-url?style=flat-square" alt="PHP from Packagist"></a>
+
+
+<a href="https://packagist.org/packages/SpecialYellow/short-url"><img src="https://img.shields.io/packagist/v/SpecialYellow/short-url.svg?style=flat-square" alt="Latest Version on Packagist"></a>
+<a href="https://packagist.org/packages/SpecialYellow/short-url"><img src="https://img.shields.io/packagist/dt/SpecialYellow/short-url.svg?style=flat-square" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/SpecialYellow/short-url"><img src="https://img.shields.io/packagist/php-v/SpecialYellow/short-url?style=flat-square" alt="PHP from Packagist"></a>
 <a href="https://github.com/ash-jc-allen/short-url/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ash-jc-allen/short-url?style=flat-square" alt="GitHub license"></a>
 </p>
 
@@ -82,13 +84,13 @@ Short URL requires either the [BC Math](https://secure.php.net/manual/en/book.bc
 You can install the package via Composer:
 
 ```bash
-composer require ashallendesign/short-url
+composer require SpecialYellow/short-url
 ```
 
 ### Publish the Config and Migrations
 You can then publish the package's config file and database migrations by using the following command:
 ```bash
-php artisan vendor:publish --provider="AshAllenDesign\ShortURL\Providers\ShortURLProvider"
+php artisan vendor:publish --provider="SpecialYellow\ShortURL\Providers\ShortURLProvider"
 ```
 
 ### Migrate the Database
@@ -103,7 +105,7 @@ php artisan migrate
 The quickest way to get started with creating a shortened URL is by using the snippet below. The ``` ->make() ``` method
  returns a ShortURL model that you can grab the shortened URL from.
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->make();
 $shortURL = $shortURLObject->default_short_url;
@@ -118,7 +120,7 @@ You may wish to define a custom key yourself for that URL that is more meaningfu
 do this by using the ``` ->urlKey() ``` method. Example:
 
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->urlKey('custom-key')->make();
 $shortURL = $shortURLObject->default_short_url;
@@ -146,14 +148,14 @@ This method accepts a boolean but defaults to ``` true ``` if a parameter is not
 
 The example below shows how to enable tracking for the URL and override the config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits()->make();
 ```
 
 The example below shows how to disable tracking for the URL and override the default config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits(false)->make();
 ```
@@ -165,7 +167,7 @@ If you want to override whether if IP address tracking is enabled or not when cr
 
 The example below shows how to enable IP address tracking for the URL and override the default config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits()->trackIPAddress()->make();
 ```
@@ -178,14 +180,14 @@ but defaults to ``` true ``` if a parameter is not passed.
 
 The example below shows how to enable browser name tracking for the URL and override the default config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits()->trackBrowser()->make();
 ```
 
 The example below shows how to enable browser version tracking for the URL and override the default config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits()->trackBrowserVersion()->make();
 ```
@@ -198,14 +200,14 @@ methods. These methods accept a boolean but default to ``` true ``` if a paramet
 
 The example below shows how to enable operating system name tracking for the URL and override the default config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits()->trackOperatingSystem()->make();
 ```
 
 The example below shows how to enable operating system version tracking for the URL and override the default config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits()->trackOperatingSystemVersion()->make();
 ```
@@ -217,7 +219,7 @@ If you want to override whether if device type tracking is enabled or not when c
 
 The example below shows how to enable device type tracking for the URL and override the default config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits()->trackDeviceType()->make();
 ```
@@ -229,7 +231,7 @@ If you want to override whether if referer URL tracking is enabled or not when c
 
 The example below shows how to enable referer URL tracking for the URL and override the default config variable:
 ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
 
 $shortURLObject = $builder->destinationUrl('https://destination.com')->trackVisits()->trackRefererURL()->make();
 ```
@@ -243,7 +245,7 @@ To create a single use shortened URL, you can use the ``` ->singleUse() ``` meth
 
 The example below shows how to create a single use shortened URL:
  ```php
- $builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+ $builder = new \SpecialYellow\ShortURL\Classes\Builder();
  
  $shortURLObject = $builder->destinationUrl('https://destination.com')->singleUse()->make();
  ```
@@ -257,7 +259,7 @@ To enforce HTTPS, you can use the ``` ->secure() ``` method when building the sh
 
 The example below shows how to create a secure shortened URL:
  ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
  
 $shortURLObject = $builder->destinationUrl('http://destination.com')->secure()->make();
 
@@ -270,7 +272,7 @@ When building a short URL, you might want to forward the query parameters sent i
 Alternatively, you can also use the `->forwardQueryParams()` method when building your shortened URL, as shown in the example below:
 
  ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
  
 $shortURLObject = $builder->destinationUrl('http://destination.com?param1=test')->forwardQueryParams()->make();
  ```
@@ -284,7 +286,7 @@ the shortened URL using the ``` ->redirectStatusCode() ``` method.
 
 The example below shows how to create a shortened URL with a redirect HTTP status code of ``` 302 ```:
  ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
  
 $shortURLObject = $builder->destinationUrl('http://destination.com')->redirectStatusCode(302)->make();
  ```
@@ -300,7 +302,7 @@ a given date and then automatically deactivate that URL when the marketing campa
 The example below shows how to create a shortened URL that will be active from this time tomorrow onwards:
 
  ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
  
 $shortURLObject = $builder->activateAt(\Carbon\Carbon::now()->addDay())->make();
  ```
@@ -309,7 +311,7 @@ The example below shows how to create a shortened URL that will be active from t
 deactivated the day after:
 
  ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
  
 $shortURLObject = $builder->activateAt(\Carbon\Carbon::now()->addDay())
                            ->deactivateAt(\Carbon\Carbon::now()->addDays(2))
@@ -321,7 +323,8 @@ $shortURLObject = $builder->activateAt(\Carbon\Carbon::now()->addDay())
 By default, the package will use the ID of the last inserted short URL as the seed for generating a short URL's key. In some cases, you may want to use a custom seed instead. To do this, you can pass an integer to the `generateKeyUsing` method like so:
 
  ```php
-$builder = new \AshAllenDesign\ShortURL\Classes\Builder();
+
+$builder = new \SpecialYellow\ShortURL\Classes\Builder();
  
 $shortURLObject = $builder->destinationUrl('https://destination.com')
     ->generateKeyUsing(12345)
@@ -358,7 +361,7 @@ The `Builder` class uses the `Illuminate\Support\Traits\Conditionable` trait, so
 For example, let's take this block of code that uses `if` when building the short URL:
 
 ```php
-use AshAllenDesign\ShortURL\Classes\Builder;
+use SpecialYellow\ShortURL\Classes\Builder;
  
 $shortURLObject = (new Builder())
     ->destinationUrl('https://destination.com');
@@ -373,7 +376,7 @@ $shortURLObject = $builder->make();)
 This could be rewritten using `when` like so:
 
  ```php
-use AshAllenDesign\ShortURL\Classes\Builder;
+use SpecialYellow\ShortURL\Classes\Builder;
 use Carbon\Carbon;
  
 $shortURLObject = (new Builder())
@@ -391,7 +394,7 @@ $shortURLObject = (new Builder())
 #### Default Route and Controller
 By default, the shortened URLs that are created use the package's route and controller. The routes use the following structure:
 ``` https://webapp.com/short/{urlKey} ```. This route uses the single-use controller that is found at 
-``` \AshAllenDesign\ShortURL\Controllers\ShortURLController ```.
+``` \SpecialYellow\ShortURL\Controllers\ShortURLController ```.
 
 #### Custom Route
 You may wish to use a different routing structure for your shortened URLs other than the default URLs that are created.
@@ -403,7 +406,7 @@ uses the ``` {shortURLKey} ``` field.
 
 The example below shows how you could add a custom route to your ``` web.php ``` file to use the shortened URLs:
 ```php
-Route::get('/custom/{shortURLKey}', '\AshAllenDesign\ShortURL\Controllers\ShortURLController');
+Route::get('/custom/{shortURLKey}', '\SpecialYellow\ShortURL\Controllers\ShortURLController');
 ```
 
 Note: If you use your own custom routing, you might want to disable the default route that the app provides. Details are
@@ -496,7 +499,7 @@ If the default route is disabled, any visitors who go to the ```/short/{shortURL
 You may want to manually prevent the route from being automatically registered and manually register it yourself in your own routes file. To do this you can add the following code to your routes file (e.g. `web.php`):
 
 ```php
-\AshAllenDesign\ShortURL\Facades\ShortURL::routes();
+\SpecialYellow\ShortURL\Facades\ShortURL::routes();
 ```
 
 #### Default URL Key Length 
@@ -573,7 +576,7 @@ visits for a shortened URL.
 To get the visits using the relationship, use ``` ->visits ``` or ``` ->visits() ```. The example snippet belows shows how:
 
 ```php
-$shortURL = \AshAllenDesign\ShortURL\Models\ShortURL::find(1);
+$shortURL = \SpecialYellow\ShortURL\Models\ShortURL::find(1);
 $visits = $shortURL->visits;
 ``` 
 #### Find by URL Key
@@ -581,7 +584,7 @@ To find the ShortURL model that corresponds to a given shortened URL key, you ca
 
 For example, to find the ShortURL model of a shortened URL that has the key ``` abc123 ```, you could use the following:
 ```php
-$shortURL = \AshAllenDesign\ShortURL\Models\ShortURL::findByKey('abc123');
+$shortURL = \SpecialYellow\ShortURL\Models\ShortURL::findByKey('abc123');
 ``` 
 
 #### Find by Destination URL
@@ -591,7 +594,7 @@ For example, to find all of the ShortURL models of shortened URLs that redirect 
 the following:
 
 ```php
-$shortURLs = \AshAllenDesign\ShortURL\Models\ShortURL::findByDestinationURL('https://destination.com');
+$shortURLs = \SpecialYellow\ShortURL\Models\ShortURL::findByDestinationURL('https://destination.com');
 ```
 
 #### Tracking Enabled
@@ -601,7 +604,7 @@ if tracking is enabled, and ``` false ``` if not.
 The following example shows how to check if a short URL has tracking enabled:
 
 ```php
-$shortURL = \AshAllenDesign\ShortURL\Models\ShortURL::first();
+$shortURL = \SpecialYellow\ShortURL\Models\ShortURL::first();
 $shortURL->trackingEnabled();
 ``` 
 
@@ -616,7 +619,7 @@ tracking for a short URL without needing to individually set each option.
 The following example shows how to get an array of all tracking-enabled fields for a short URL:
 
 ```php
-$shortURL = \AshAllenDesign\ShortURL\Models\ShortURL::first();
+$shortURL = \SpecialYellow\ShortURL\Models\ShortURL::first();
 $shortURL->trackingFields();
 ``` 
 
@@ -625,7 +628,8 @@ $shortURL->trackingFields();
 The package comes with model factories included for testing purposes which come in handy when generating polymorphic relationships. The `ShortURL` model factory also comes with extra states that you may use when necessary, such as `deactivated` and `inactive`:
 
 ```php
-use AshAllenDesign\ShortURL\Models\ShortURL;
+
+use SpecialYellow\ShortURL\Models\ShortURL;
 
 $shortUrl = ShortURL::factory()->create();
 
@@ -640,8 +644,8 @@ If you are using your own custom model factory, you can define the factories tha
 
 ```php
 'factories' => [
-    \AshAllenDesign\ShortURL\Models\ShortURL::class => \AshAllenDesign\ShortURL\Models\Factories\ShortURLFactory::class,
-    \AshAllenDesign\ShortURL\Models\ShortURLVisit::class => \AshAllenDesign\ShortURL\Models\Factories\ShortURLVisitFactory::class
+    \SpecialYellow\ShortURL\Models\ShortURL::class => \SpecialYellow\ShortURL\Models\Factories\ShortURLFactory::class,
+    \SpecialYellow\ShortURL\Models\ShortURLVisit::class => \SpecialYellow\ShortURL\Models\Factories\ShortURLVisitFactory::class
 ],
 ```
 
@@ -652,7 +656,7 @@ If you are using your own custom model factory, you can define the factories tha
 Each time a short URL is visited, the following event is fired that can be listened on:
 
 ```
-AshAllenDesign\ShortURL\Events\ShortURLVisited
+SpecialYellow\ShortURL\Events\ShortURLVisited
 ```
 
 If you are redirecting users with a `301` HTTP status code, it's possible that this event will NOT be fired
@@ -673,7 +677,7 @@ vendor/bin/phpunit
 
 ## Security
 
-If you find any security related issues, please contact me directly at [mail@ashallendesign.co.uk](mailto:mail@ashallendesign.co.uk) to report it.
+If you find any security related issues, please contact me directly at [mail@SpecialYellow.co.uk](mailto:mail@SpecialYellow.co.uk) to report it.
 
 ## Contribution
 
@@ -683,7 +687,7 @@ Note: A contribution guide will be added soon.
 
 ## Credits
 
-- [Ash Allen](https://ashallendesign.co.uk)
+- [Ash Allen](https://SpecialYellow.co.uk)
 - [Jess Pickup](https://jesspickup.co.uk) (Logo)
 - [Nathan Giesbrecht](https://github.com/NathanGiesbrecht)
 - [Carlos A. Escobar](https://github.com/carlosjs23)
@@ -714,4 +718,4 @@ To say a huge thanks, you can use the code **BATTLE20** to get a 20% discount on
 
 [👉 Get Your Copy!](https://battle-ready-laravel.com)
 
-[![Battle Ready Laravel](https://ashallendesign.co.uk/images/custom/sponsors/battle-ready-laravel-horizontal-banner.png)](https://battle-ready-laravel.com)
+[![Battle Ready Laravel](https://SpecialYellow.co.uk/images/custom/sponsors/battle-ready-laravel-horizontal-banner.png)](https://battle-ready-laravel.com)

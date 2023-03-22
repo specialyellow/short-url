@@ -1,17 +1,17 @@
 {
-  "name": "ashallendesign/short-url",
+  "name": "specialyellow/short-url",
   "description": "A Laravel package for creating shortened URLs for your web apps.",
   "type": "library",
-  "homepage": "https://github.com/ash-jc-allen/short-url",
+  "homepage": "https://github.com/specialyellow/short-url",
   "license": "MIT",
   "authors": [
     {
       "name": "Ash Allen",
-      "email": "mail@ashallendesign.co.uk"
+      "email": "mail@SpecialYellow.co.uk"
     }
   ],
   "keywords": [
-    "ashallendesign",
+    "SpecialYellow",
     "short-urls",
     "url-shortener",
     "laravel",
@@ -33,21 +33,21 @@
   },
   "autoload": {
     "psr-4": {
-      "AshAllenDesign\\ShortURL\\": "src/"
+      "SpecialYellow\\ShortURL\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "AshAllenDesign\\ShortURL\\Tests\\": "tests/"
+      "SpecialYellow\\ShortURL\\Tests\\": "tests/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "AshAllenDesign\\ShortURL\\Providers\\ShortURLProvider"
+        "SpecialYellow\\ShortURL\\Providers\\ShortURLProvider"
       ],
       "aliases": {
-        "ShortURL": "AshAllenDesign\\ShortURL\\Facades\\ShortURL"
+        "ShortURL": "SpecialYellow\\ShortURL\\Facades\\ShortURL"
       }
     }
   },

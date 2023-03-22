@@ -1,9 +1,9 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Controllers;
+namespace SpecialYellow\ShortURL\Controllers;
 
-use AshAllenDesign\ShortURL\Classes\Resolver;
-use AshAllenDesign\ShortURL\Models\ShortURL;
+use SpecialYellow\ShortURL\Classes\Resolver;
+use SpecialYellow\ShortURL\Models\ShortURL;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 

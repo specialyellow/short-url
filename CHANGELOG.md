@@ -112,7 +112,7 @@ were set in the config and affected all new and existing short URLs.
 - Renamed the underlying facade class from ``` BuilderFacade ``` to ``` ShortURLBuilder ``` for consistency.
 
     Note: This isn't
-    changing the name of the facade. It's just changing the underlying class name for if you want to use ``` use AshAllenDesign\ShortURL\Facades\ShortURLBuilder; ```
+    changing the name of the facade. It's just changing the underlying class name for if you want to use ``` use SpecialYellow\ShortURL\Facades\ShortURLBuilder; ```
     rather than ``` use ShortURLBuilder; ```.
 
 - Added methods to the facade docblock. This will display the methods in the IDE's autocomplete.

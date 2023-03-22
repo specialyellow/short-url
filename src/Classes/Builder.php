@@ -1,11 +1,11 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Classes;
+namespace SpecialYellow\ShortURL\Classes;
 
-use AshAllenDesign\ShortURL\Controllers\ShortURLController;
-use AshAllenDesign\ShortURL\Exceptions\ShortURLException;
-use AshAllenDesign\ShortURL\Exceptions\ValidationException;
-use AshAllenDesign\ShortURL\Models\ShortURL;
+use SpecialYellow\ShortURL\Controllers\ShortURLController;
+use SpecialYellow\ShortURL\Exceptions\ShortURLException;
+use SpecialYellow\ShortURL\Exceptions\ValidationException;
+use SpecialYellow\ShortURL\Models\ShortURL;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;

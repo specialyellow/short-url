@@ -1,12 +1,12 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Tests\Unit\Classes;
+namespace SpecialYellow\ShortURL\Tests\Unit\Classes;
 
-use AshAllenDesign\ShortURL\Classes\Builder;
-use AshAllenDesign\ShortURL\Exceptions\ShortURLException;
-use AshAllenDesign\ShortURL\Exceptions\ValidationException;
-use AshAllenDesign\ShortURL\Models\ShortURL;
-use AshAllenDesign\ShortURL\Tests\Unit\TestCase;
+use SpecialYellow\ShortURL\Classes\Builder;
+use SpecialYellow\ShortURL\Exceptions\ShortURLException;
+use SpecialYellow\ShortURL\Exceptions\ValidationException;
+use SpecialYellow\ShortURL\Models\ShortURL;
+use SpecialYellow\ShortURL\Tests\Unit\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
 use ShortURL as ShortURLAlias;
@@ -267,7 +267,7 @@ class BuilderTest extends TestCase
     {
         ShortURL::create([
             'default_short_url' => 'https://short.com/urlkey123',
-            'destination_url'   => 'https://destination.com/ashallendesign',
+            'destination_url'   => 'https://destination.com/SpecialYellow',
             'url_key'           => 'urlkey123',
             'single_use'        => false,
             'track_visits'      => false,

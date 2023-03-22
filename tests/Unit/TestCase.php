@@ -1,9 +1,9 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Tests\Unit;
+namespace SpecialYellow\ShortURL\Tests\Unit;
 
-use AshAllenDesign\ShortURL\Facades\ShortURL;
-use AshAllenDesign\ShortURL\Providers\ShortURLProvider;
+use SpecialYellow\ShortURL\Facades\ShortURL;
+use SpecialYellow\ShortURL\Providers\ShortURLProvider;
 use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 

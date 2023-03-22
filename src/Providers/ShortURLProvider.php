@@ -1,10 +1,10 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Providers;
+namespace SpecialYellow\ShortURL\Providers;
 
-use AshAllenDesign\ShortURL\Classes\Builder;
-use AshAllenDesign\ShortURL\Classes\Validation;
-use AshAllenDesign\ShortURL\Exceptions\ValidationException;
+use SpecialYellow\ShortURL\Classes\Builder;
+use SpecialYellow\ShortURL\Classes\Validation;
+use SpecialYellow\ShortURL\Exceptions\ValidationException;
 use Illuminate\Support\ServiceProvider;
 
 class ShortURLProvider extends ServiceProvider

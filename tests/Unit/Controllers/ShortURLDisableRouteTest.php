@@ -1,9 +1,9 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Tests\Unit\Controllers;
+namespace SpecialYellow\ShortURL\Tests\Unit\Controllers;
 
-use AshAllenDesign\ShortURL\Models\ShortURL;
-use AshAllenDesign\ShortURL\Tests\Unit\TestCase;
+use SpecialYellow\ShortURL\Models\ShortURL;
+use SpecialYellow\ShortURL\Tests\Unit\TestCase;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 
 class ShortURLDisableRouteTest extends TestCase

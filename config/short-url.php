@@ -34,8 +34,8 @@ return [
     |
     */
     'factories' => [
-        \AshAllenDesign\ShortURL\Models\ShortURL::class => \AshAllenDesign\ShortURL\Models\Factories\ShortURLFactory::class,
-        \AshAllenDesign\ShortURL\Models\ShortURLVisit::class => \AshAllenDesign\ShortURL\Models\Factories\ShortURLVisitFactory::class,
+        \SpecialYellow\ShortURL\Models\ShortURL::class => \SpecialYellow\ShortURL\Models\Factories\ShortURLFactory::class,
+        \SpecialYellow\ShortURL\Models\ShortURLVisit::class => \SpecialYellow\ShortURL\Models\Factories\ShortURLVisitFactory::class,
     ],
 
     /*
@@ -48,7 +48,7 @@ return [
     | This allows you to define your own route that points to
     | the controller at:
     |
-    | AshAllenDesign\ShortURL\Controllers\ShortURLController
+    | SpecialYellow\ShortURL\Controllers\ShortURLController
     |
     */
     'disable_default_route' => false,
@@ -123,7 +123,7 @@ return [
     | generated keys are unique.
     |
     */
-    'key_salt'              => 'AshAllenDesign\ShortURL',
+    'key_salt'              => 'SpecialYellow\ShortURL',
 
     /*
     |--------------------------------------------------------------------------

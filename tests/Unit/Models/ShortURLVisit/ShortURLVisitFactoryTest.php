@@ -1,10 +1,10 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Tests\Unit\Models\ShortURLVisit;
+namespace SpecialYellow\ShortURL\Tests\Unit\Models\ShortURLVisit;
 
-use AshAllenDesign\ShortURL\Models\ShortURL;
-use AshAllenDesign\ShortURL\Models\ShortURLVisit;
-use AshAllenDesign\ShortURL\Tests\Unit\TestCase;
+use SpecialYellow\ShortURL\Models\ShortURL;
+use SpecialYellow\ShortURL\Models\ShortURLVisit;
+use SpecialYellow\ShortURL\Tests\Unit\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ShortURLVisitFactoryTest extends TestCase

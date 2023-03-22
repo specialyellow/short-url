@@ -1,6 +1,6 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Models;
+namespace SpecialYellow\ShortURL\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;

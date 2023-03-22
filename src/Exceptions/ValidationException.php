@@ -1,6 +1,6 @@
 <?php
 
-namespace AshAllenDesign\ShortURL\Exceptions;
+namespace SpecialYellow\ShortURL\Exceptions;
 
 use Exception;
 

@@ -14,7 +14,7 @@
 
 As of Short URL v7.0.0, one of the method's signatures have been updated in order to allow the default short URL prefix to be nullable.
 
-The signature of the `prefix()` method in the `AshAllenDesign\ShortURL\Classes\Builder` class has changed from:
+The signature of the `prefix()` method in the `SpecialYellow\ShortURL\Classes\Builder` class has changed from:
 
 ```
 public function prefix(): string
@@ -114,7 +114,7 @@ If you would prefer to publish the migrations so that you can make changes to th
 command before migrating:
 
 ```
-php artisan vendor:publish --provider="AshAllenDesign\ShortURL\Providers\ShortURLProvider"
+php artisan vendor:publish --provider="SpecialYellow\ShortURL\Providers\ShortURLProvider"
 ```
 
 Note: When this migrations runs, it will auto-populate any of your existing short URLs to have today's date as the
@@ -144,7 +144,7 @@ If you would prefer to publish the migrations so that you can make changes to th
 command before migrating:
 
 ```
-php artisan vendor:publish --provider="AshAllenDesign\ShortURL\Providers\ShortURLProvider"
+php artisan vendor:publish --provider="SpecialYellow\ShortURL\Providers\ShortURLProvider"
 ```
 
 Note: When this migration runs, it will auto-populate any of your existing short URLs to have the tracking values as specified in your
