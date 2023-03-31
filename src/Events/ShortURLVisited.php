@@ -2,11 +2,12 @@
 
 namespace SpecialYellow\ShortURL\Events;
 
-use SpecialYellow\ShortURL\Models\ShortURL;
-use SpecialYellow\ShortURL\Models\ShortURLVisit;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Livewire\Livewire;
+use SpecialYellow\ShortURL\Models\ShortURL;
+use SpecialYellow\ShortURL\Models\ShortURLVisit;
 
 class ShortURLVisited
 {

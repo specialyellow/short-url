@@ -2,14 +2,15 @@
 
 namespace SpecialYellow\ShortURL\Classes;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Illuminate\Support\Traits\Conditionable;
 use SpecialYellow\ShortURL\Controllers\ShortURLController;
 use SpecialYellow\ShortURL\Exceptions\ShortURLException;
 use SpecialYellow\ShortURL\Exceptions\ValidationException;
 use SpecialYellow\ShortURL\Models\ShortURL;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
-use Illuminate\Support\Traits\Conditionable;
 
 class Builder
 {
@@ -22,6 +23,10 @@ class Builder
      * @var KeyGenerator
      */
     private $keyGenerator;
+
+    protected $user_id;
+    protected $campaign_id;
+    protected $nickname; 
 
     /**
      * The destination URL that the short URL will
@@ -398,6 +403,18 @@ class Builder
         return $this;
     }
 
+    public function nickname(String $nickname): self
+    {
+        $this->nickname = $nickname;
+        return $this;
+    }
+
+    public function campaign_id(String $campaign_id): self
+    {
+        $this->campaign_id = $campaign_id;
+        return $this;
+    }
+
     /**
      * Explicitly set a URL key for this short URL.
      *
@@ -529,6 +546,9 @@ class Builder
         $this->setOptions();
 
         return [
+            'user_id'                        => Auth::id(),
+            'campaign_id'                    => $this->campaign_id,
+            'nickname'                       => $this->nickname,
             'destination_url'                => $this->destinationUrl,
             'default_short_url'              => $this->buildDefaultShortUrl(),
             'url_key'                        => $this->urlKey,

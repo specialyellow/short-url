@@ -50,6 +50,9 @@ class ShortURL extends Model
      */
     protected $fillable = [
         'destination_url',
+        'nickname',
+        'user_id',
+        'campaign_id',
         'default_short_url',
         'url_key',
         'single_use',
@@ -122,6 +125,56 @@ class ShortURL extends Model
     public function visits(): HasMany
     {
         return $this->hasMany(ShortURLVisit::class, 'short_url_id');
+    }
+
+    /**
+     * A short URL can be visited many times today.
+     *
+     * @return HasMany<ShortURLVisit>
+     */
+    public function visitsToday(): HasMany
+    {
+        return $this->hasMany(ShortURLVisit::class, 'short_url_id')->whereDate('visited_at', Carbon::now());
+    }
+
+    /**
+     * A short URL can be visited many times today.
+     *
+     * @return HasMany<ShortURLVisit>
+     */
+    public function visitsMTD(): HasMany
+    {
+        return $this->hasMany(ShortURLVisit::class, 'short_url_id')->whereMonth('visited_at', Carbon::now()->month);
+    }
+
+    /**
+     * A short URL can be visited many times today.
+     *
+     * @return HasMany<ShortURLVisit>
+     */
+    public function visitsLastMonth(): HasMany
+    {
+        return $this->hasMany(ShortURLVisit::class, 'short_url_id')->whereMonth('visited_at', Carbon::now()->subMonthsNoOverflow());
+    }
+
+    /**
+     * A short URL can be visited many times YTD
+     *
+     * @return HasMany<ShortURLVisit>
+     */
+    public function visitsYTD(): HasMany
+    {
+        return $this->hasMany(ShortURLVisit::class, 'short_url_id')->whereYear('visited_at', Carbon::now()->year);
+    }
+
+    /**
+     * A short URL can be visited many times YTD
+     *
+     * @return HasMany<ShortURLVisit>
+     */
+    public function visitsLastYear(): HasMany
+    {
+        return $this->hasMany(ShortURLVisit::class, 'short_url_id')->whereYear('visited_at', Carbon::now()->subYear(1));
     }
 
     /**

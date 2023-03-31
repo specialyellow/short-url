@@ -2,13 +2,14 @@
 
 namespace SpecialYellow\ShortURL\Classes;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Event;
+use Jenssegers\Agent\Agent;
 use SpecialYellow\ShortURL\Events\ShortURLVisited;
 use SpecialYellow\ShortURL\Exceptions\ValidationException;
 use SpecialYellow\ShortURL\Models\ShortURL;
 use SpecialYellow\ShortURL\Models\ShortURLVisit;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Event;
-use Jenssegers\Agent\Agent;
 
 class Resolver
 {
@@ -108,10 +109,9 @@ class Resolver
     protected function recordVisit(Request $request, ShortURL $shortURL): ShortURLVisit
     {
         $visit = new ShortURLVisit();
-
         $visit->short_url_id = $shortURL->id;
         $visit->visited_at = now();
-
+        $visit->encrypted_key = $request->encryptedKey;
         if ($shortURL->track_visits) {
             $this->trackVisit($shortURL, $visit, $request);
         }
@@ -187,4 +187,10 @@ class Resolver
 
         return '';
     }
+
+    // public function setCookie($shortURL)
+    // {
+    //   $minutes = 30 * 24 * 60;
+    //   Cookie::queue('link_session', $shortURL->urlKey, $minutes);
+    // }
 }

@@ -48,17 +48,7 @@ class ShortURLVisit extends Model
      *
      * @var string[]
      */
-    protected $fillable = [
-        'short_url_id',
-        'ip_address',
-        'operating_system',
-        'operating_system_version',
-        'browser',
-        'browser_version',
-        'visited_at',
-        'referer_url',
-        'device_type',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be mutated to dates.
@@ -104,5 +94,28 @@ class ShortURLVisit extends Model
     public function shortURL(): BelongsTo
     {
         return $this->belongsTo(ShortURL::class, 'short_url_id');
+    }
+
+    public function colour( $key )
+    {
+        $md5 = md5( $key );
+        $md5 = preg_replace( '/[^0-9a-fA-F]/', '', $md5 );
+        $color = substr( $md5, 0, 6 );
+        $hex = str_split( $color, 1 );
+        $rgbd = array_map( 'hexdec', $hex );
+        $rgba = array(
+            ( $rgbd[0] * $rgbd[1] ),
+            ( $rgbd[2] * $rgbd[3] ),
+            ( $rgbd[4] * $rgbd[5] ),
+        );
+        return $rgba;
+    }
+
+    public function scopeUrlKey($query, $urlKey)
+    {
+        if ($urlKey) {
+            return $query->whereUrlKey($urlKey);
+        }
+        return $query;
     }
 }

@@ -18,6 +18,9 @@ class ShortURLFactory extends Factory
         $urlKey = (new KeyGenerator())->generateRandom();
 
         return [
+            'user_id'        => 0,
+            'campaign_id'    => 0,
+            'nickname'       => 'nickname',
             'destination_url' => $this->faker->url(),
             'default_short_url' => url($urlKey),
             'url_key' => $urlKey,

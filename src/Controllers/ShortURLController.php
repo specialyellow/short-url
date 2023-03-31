@@ -2,11 +2,13 @@
 
 namespace SpecialYellow\ShortURL\Controllers;
 
-use SpecialYellow\ShortURL\Classes\Resolver;
-use SpecialYellow\ShortURL\Models\ShortURL;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Str;
+use SpecialYellow\ShortURL\Classes\Resolver;
+use SpecialYellow\ShortURL\Models\ShortURL;
+    
 class ShortURLController
 {
     /**
@@ -22,9 +24,12 @@ class ShortURLController
     public function __invoke(Request $request, Resolver $resolver, string $shortURLKey): RedirectResponse
     {
         $shortURL = ShortURL::where('url_key', $shortURLKey)->firstOrFail();
+        $encryptedKey = Crypt::encryptString($shortURLKey . Str::uuid()->toString());
+        request()->merge(['encryptedKey' => $encryptedKey ]);
 
         $resolver->handleVisit(request(), $shortURL);
 
+        cookie()->queue('link_session', $encryptedKey , 43200);
         if ($shortURL->forward_query_params) {
             return redirect($this->forwardQueryParams($request, $shortURL), $shortURL->redirect_status_code);
         }
