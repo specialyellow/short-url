@@ -27,6 +27,8 @@ class Builder
     protected $user_id;
     protected $campaign_id;
     protected $nickname; 
+    protected $subdomain_id; 
+    protected $subdomain_url_key; 
 
     /**
      * The destination URL that the short URL will
@@ -415,6 +417,18 @@ class Builder
         return $this;
     }
 
+    public function subdomain_id(String $subdomain_id): self
+    {
+        $this->subdomain_id = $subdomain_id;
+        return $this;
+    }
+
+    public function subdomain_url_key(String $subdomain_url_key): self
+    {
+        $this->subdomain_url_key = $subdomain_url_key;
+        return $this;
+    }
+
     /**
      * Explicitly set a URL key for this short URL.
      *
@@ -552,6 +566,8 @@ class Builder
             'destination_url'                => $this->destinationUrl,
             'default_short_url'              => $this->buildDefaultShortUrl(),
             'url_key'                        => $this->urlKey,
+            'subdomain_id'                   => $this->subdomain_id,
+            'subdomain_url_key'              => $this->subdomain_url_key,
             'single_use'                     => $this->singleUse,
             'forward_query_params'           => $this->forwardQueryParams,
             'track_visits'                   => $this->trackVisits,

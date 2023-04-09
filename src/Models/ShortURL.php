@@ -2,13 +2,15 @@
 
 namespace SpecialYellow\ShortURL\Models;
 
+use App\Models\Subdomain;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 /**
  * Class ShortURL.
  *
@@ -55,6 +57,8 @@ class ShortURL extends Model
         'campaign_id',
         'default_short_url',
         'url_key',
+        'subdomain_id',
+        'subdomain_url_key',
         'single_use',
         'forward_query_params',
         'track_visits',
@@ -177,6 +181,12 @@ class ShortURL extends Model
         return $this->hasMany(ShortURLVisit::class, 'short_url_id')->whereYear('visited_at', Carbon::now()->subYear(1));
     }
 
+
+
+    public function subdomain(): HasOne 
+    {
+        return $this->hasOne(Subdomain::class,'id','subdomain_id');
+    }
     /**
      * A helper method that can be used for finding
      * a ShortURL model with the given URL key.
@@ -252,5 +262,12 @@ class ShortURL extends Model
         }
 
         return $fields;
+    }
+
+    protected function fullDomain(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => 'https://' . $this->subdomain->url . '/' . $this->subdomain_url_key
+        );
     }
 }

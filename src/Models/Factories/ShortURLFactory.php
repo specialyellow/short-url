@@ -5,7 +5,7 @@ namespace SpecialYellow\ShortURL\Models\Factories;
 use SpecialYellow\ShortURL\Classes\KeyGenerator;
 use SpecialYellow\ShortURL\Models\ShortURL;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 /**
  * @extends Factory<ShortURL>
  */
@@ -19,10 +19,10 @@ class ShortURLFactory extends Factory
 
         return [
             'user_id'        => 0,
-            'campaign_id'    => 0,
+            'campaign_id'    => 1,
             'nickname'       => 'nickname',
             'destination_url' => $this->faker->url(),
-            'default_short_url' => url($urlKey),
+            'default_short_url' => Str::random(30),
             'url_key' => $urlKey,
             'single_use' => $this->faker->boolean(),
             'forward_query_params' => $this->faker->boolean(),
