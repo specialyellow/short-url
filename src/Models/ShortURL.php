@@ -270,4 +270,30 @@ class ShortURL extends Model
             get: fn ($value) => 'https://' . $this->subdomain->url . '/' . $this->subdomain_url_key
         );
     }
+
+    public function substitute( $urlKey )
+    {
+        $shortURL = ShortURL::where('subdomain_url_key', $urlKey)
+                                ->where('subdomain_id', $this->subdomain_id)
+                                ->first();
+
+        if (!$shortURL) {
+            $builder = new \SpecialYellow\ShortURL\Classes\Builder();
+
+                // https://hop.clickbank.net/?affiliate=cbsnooper&vendor=%here%
+
+            $destination_url = str_replace("::REPLACE::", $urlKey, $this->destination_url);
+
+            $shortURLObject = $builder->destinationUrl( $destination_url )
+                                      ->campaign_id( $this->campaign_id )
+                                      ->subdomain_id( $this->subdomain_id )
+                                      ->subdomain_url_key( $urlKey )
+                                      ->nickname( $this->nickname . ' / ' . $urlKey )
+                                      ->make();
+        }
+
+    }
+
+
+
 }
