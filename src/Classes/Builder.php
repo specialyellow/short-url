@@ -411,6 +411,11 @@ class Builder
         return $this;
     }
 
+    public function user_id(String $user_id): self 
+    {
+        $this->user_id = $user_id;
+        return $this;
+    }
     public function campaign_id(String $campaign_id): self
     {
         $this->campaign_id = $campaign_id;
@@ -560,7 +565,7 @@ class Builder
         $this->setOptions();
 
         return [
-            'user_id'                        => Auth::id(),
+            'user_id'                        => isset($this->user_id) ? $this->user_id : Auth::id(),
             'campaign_id'                    => $this->campaign_id,
             'nickname'                       => $this->nickname,
             'destination_url'                => $this->destinationUrl,

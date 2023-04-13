@@ -285,6 +285,7 @@ class ShortURL extends Model
             $destination_url = str_replace("::REPLACE::", $urlKey, $this->destination_url);
 
             $shortURLObject = $builder->destinationUrl( $destination_url )
+                                        ->user_id( $this->user_id )
                                       ->campaign_id( $this->campaign_id )
                                       ->subdomain_id( $this->subdomain_id )
                                       ->subdomain_url_key( $urlKey )
