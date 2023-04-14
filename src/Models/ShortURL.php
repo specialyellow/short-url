@@ -50,29 +50,7 @@ class ShortURL extends Model
      *
      * @var string[]
      */
-    protected $fillable = [
-        'destination_url',
-        'nickname',
-        'user_id',
-        'campaign_id',
-        'default_short_url',
-        'url_key',
-        'subdomain_id',
-        'subdomain_url_key',
-        'single_use',
-        'forward_query_params',
-        'track_visits',
-        'redirect_status_code',
-        'track_ip_address',
-        'track_operating_system',
-        'track_operating_system_version',
-        'track_browser',
-        'track_browser_version',
-        'track_referer_url',
-        'track_device_type',
-        'activated_at',
-        'deactivated_at',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be mutated to dates.

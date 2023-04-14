@@ -27,6 +27,8 @@ class ShortURLFactory extends Factory
             'single_use' => $this->faker->boolean(),
             'forward_query_params' => $this->faker->boolean(),
             'track_visits' => $this->faker->boolean(),
+            'username' => $this->faker->name(),
+            'notes' => $this->faker->sentence(),
             'redirect_status_code' => $this->faker->randomElement([301, 302]),
             'track_ip_address' => $this->faker->boolean(),
             'track_operating_system' => $this->faker->boolean(),

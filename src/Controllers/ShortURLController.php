@@ -2,6 +2,7 @@
 
 namespace SpecialYellow\ShortURL\Controllers;
 
+use App\Http\Controllers\RedirectController;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -30,6 +31,11 @@ class ShortURLController
         $resolver->handleVisit(request(), $shortURL);
 
         cookie()->queue('link_session', $encryptedKey , 43200);
+
+        if ($shortURL->facebook_pixel) {
+            return redirect()->action([RedirectController::class, 'index'],['shortURL' => $shortURL]);;
+        }
+
         if ($shortURL->forward_query_params) {
             return redirect($this->forwardQueryParams($request, $shortURL), $shortURL->redirect_status_code);
         }
