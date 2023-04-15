@@ -21,7 +21,7 @@ class ShortURLFactory extends Factory
             'user_id'        => 0,
             'campaign_id'    => 1,
             'nickname'       => 'nickname',
-            'destination_url' => $this->faker->url(),
+            'destination_url' => 'https://google.com',
             'default_short_url' => Str::random(30),
             'url_key' => $urlKey,
             'single_use' => $this->faker->boolean(),
